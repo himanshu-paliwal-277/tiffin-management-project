@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run seed)",
+      "Bash(timeout 8 node src/server.js)",
+      "Bash(netstat -ano)",
+      "Bash(findstr :5000)",
+      "Bash(taskkill /PID 4592 /F)",
+      "Bash(cmd /c \"taskkill /PID 4592 /F\")",
+      "Bash(curl -s -X POST http://localhost:5001/api/auth/login -H \"Content-Type: application/json\" -d '{\"\"email\"\":\"\"hpaliwal364@gmail.com\"\",\"\"password\"\":\"\"12345678\"\"}')",
+      "Bash(cmd /c \"for /f \"\"tokens=5\"\" %a in \\(''netstat -ano ^| findstr :5001''\\) do taskkill /PID %a /F\")",
+      "Bash(npm run build)"
+    ]
+  }
+}

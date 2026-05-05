@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" fill="#228be6"/>
+  <!-- Tiffin box lid -->
+  <rect x="80" y="120" width="352" height="80" rx="20" fill="white"/>
+  <!-- Tiffin box body -->
+  <rect x="80" y="216" width="352" height="200" rx="20" fill="white" opacity="0.95"/>
+  <!-- Lid handle -->
+  <rect x="196" y="96" width="120" height="32" rx="16" fill="white"/>
+  <!-- Food lines inside box -->
+  <rect x="120" y="252" width="100" height="16" rx="8" fill="#228be6" opacity="0.3"/>
+  <rect x="120" y="284" width="272" height="16" rx="8" fill="#228be6" opacity="0.3"/>
+  <rect x="120" y="316" width="200" height="16" rx="8" fill="#228be6" opacity="0.3"/>
+  <rect x="120" y="348" width="150" height="16" rx="8" fill="#228be6" opacity="0.3"/>
+  <!-- Divider line in box -->
+  <rect x="260" y="220" width="4" height="192" rx="2" fill="#228be6" opacity="0.15"/>
+</svg>
