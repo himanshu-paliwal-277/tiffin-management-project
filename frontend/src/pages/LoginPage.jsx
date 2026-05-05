@@ -7,10 +7,10 @@ import {
   Paper,
   Title,
   Container,
-  Alert,
   Text,
   Stack,
 } from '@mantine/core';
+import { notifications } from '@mantine/notifications';
 import { login } from '../api/auth';
 import useAuthStore from '../store/authStore';
 
@@ -19,21 +19,24 @@ export default function LoginPage() {
   const { token, setAuth } = useAuthStore();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   if (token) return <Navigate to="/dashboard" replace />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
     setLoading(true);
     try {
-      const { data } = await login(email, password);
+      const { data } = await login(email.trim().toLowerCase(), password);
       setAuth(data.token, data.user);
       navigate('/dashboard');
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed. Check your credentials.');
+      notifications.show({
+        color: 'red',
+        title: 'Login Failed',
+        message: err.response?.data?.message || 'Invalid email or password',
+        autoClose: 4000,
+      });
     } finally {
       setLoading(false);
     }
@@ -50,14 +53,11 @@ export default function LoginPage() {
       <Paper withBorder shadow="md" p={30} radius="md">
         <form onSubmit={handleSubmit}>
           <Stack gap="md">
-            {error && (
-              <Alert color="red" radius="md">
-                {error}
-              </Alert>
-            )}
             <TextInput
               label="Email"
               placeholder="you@example.com"
+              type="email"
+              name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -65,6 +65,7 @@ export default function LoginPage() {
             <PasswordInput
               label="Password"
               placeholder="Your password"
+              name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required

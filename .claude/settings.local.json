@@ -9,7 +9,9 @@
       "Bash(cmd /c \"taskkill /PID 4592 /F\")",
       "Bash(curl -s -X POST http://localhost:5001/api/auth/login -H \"Content-Type: application/json\" -d '{\"\"email\"\":\"\"hpaliwal364@gmail.com\"\",\"\"password\"\":\"\"12345678\"\"}')",
       "Bash(cmd /c \"for /f \"\"tokens=5\"\" %a in \\(''netstat -ano ^| findstr :5001''\\) do taskkill /PID %a /F\")",
-      "Bash(npm run build)"
+      "Bash(npm run build)",
+      "Bash(curl -s -X POST http://127.0.0.1:4000/api/auth/login -H \"Content-Type: application/json\" -d \"{\"\"email\"\":\"\"hpaliwal364@gmail.com\"\",\"\"password\"\":\"\"12345678\"\"}\")",
+      "Bash(curl -s -X POST http://127.0.0.1:3000/api/auth/login -H \"Content-Type: application/json\" -d \"{\"\"email\"\":\"\"hpaliwal364@gmail.com\"\",\"\"password\"\":\"\"12345678\"\"}\")"
     ]
   }
 }

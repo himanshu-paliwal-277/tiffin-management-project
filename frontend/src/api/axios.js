@@ -17,7 +17,9 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (res) => res,
   (error) => {
-    if (error.response?.status === 401) {
+    const isLoginRequest = error.config?.url?.includes('/auth/login');
+    // Only redirect on 401 for protected requests, NOT for the login attempt itself
+    if (error.response?.status === 401 && !isLoginRequest) {
       useAuthStore.getState().logout();
       window.location.href = '/login';
     }
