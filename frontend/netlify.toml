@@ -3,7 +3,10 @@
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
+
+# Keep npm on a modern version aligned with Node 20 image
+  NPM_VERSION = "10"
 
 # SPA redirect — send all routes to index.html so React Router handles them
 [[redirects]]
